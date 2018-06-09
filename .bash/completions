@@ -14,9 +14,8 @@
 #   complete -o default -o nospace -F _git g
 #
 
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/tmux
+source /etc/bash_completion.d/git-completion.bash
+source /etc/bash_completion.d/git-prompt.sh
 
 # FZF
 # TODO split up? (because it does more than completion)
@@ -26,5 +25,3 @@ if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="$PATH:/usr/local/opt/fzf/bin"
 fi
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.bash"
-export FZF_DEFAULT_OPTS='--color=light'
