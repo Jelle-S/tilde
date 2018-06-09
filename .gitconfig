@@ -1,60 +1,14 @@
-# vim: ft=gitconfig:
-
+[user]
+  name = Jelle Sebreghts
+  email = sebreghts.jelle@gmail.com
 [core]
-    excludesfile = ~/.gitignore-global
-    whitespace = tab-in-indent diff --check,tab-in-indent
-
-[include]
-    path = .gitconfig-user
-
-[pretty]
-    shortnsweet = %C(green)%h%C(blue)%d%C(reset) %s  %C(yellow)%an%C(reset), %cr
-    whowhenwhere = %C(red) %cn %>|(40) %C(blue) %ar %>|(80) %C(reset)
-
-[tag]
-    sort = v:refname
-
+  excludesfile = ~/.gitignore
 [alias]
-    aa = add --all
-    amend = commit --amend
-    au = add --update
-    co = checkout
-    dc = diff --cached
-    info = "!echo && git remote -v && echo && git branch -a"
-    l = "!echo && (git --no-pager log -15 --pretty=shortnsweet) && echo"
-    ll = log --pretty=shortnsweet --graph
-    lostcommits = "!git fsck | grep commit | cut -d' ' -f3 | while read hash; do git rev-parse --verify --quiet $hash^2 && echo $hash; done | xargs git show"
-    pullff = pull --ff-only
-    s = status --short --branch
-    branchauthors = "! for branch in `git branch -r | grep -v HEAD`;do echo `git show --pretty=whowhenwhere $branch | head -n 1` \t$branch; done | sort -r"
-    changelog = tag -l -n1000 --sort=v:refname
-
-    # Last version; show latest tag on the current branch.
-    lastversion = describe --abbrev=0 --tags
-
-    # DG releases and CHANGELOG
-    release-log = log --pretty=format:'(%h) %s%n%w(72,10,10)%b%w(72,0,0)by %an on %ad%n' --date=local --no-merges
-    release-notes = "!f() { git release-log \"${1:-$(git describe --abbrev=0 --tags)}\"..\"${2:-$(git rev-parse HEAD)}\"; }; f \"$@\""
-    release-tag = "!f() { git release-notes | git tag -a \"$1\" -F -; }; f \"$@\""
-
-    # Tags should not be created on a commit in a non-master branch.
-    # Listing them will at least allow us to find out which tags were "bad"
-    bad-tags = "! for tag in `git tag`; do echo $tag && git branch --contains tags/$tag; done"
-
-[color]
-    ui = auto
-
-[github]
-    user = dubgeiser
-
-[push]
-    default = simple
-
-[diff]
-    # Take time to try to produce better diffs.
-    algorithm = patience
-    tool = vimdiff
-
-[merge]
-    # Add a list of merged commits to the generated commit message.
-    log = true
+  changelog = tag -l -n1000 --sort=v:refname
+  lm = log --pretty=format:'(%h) %s%n%w(72,10,10)%b%w(72,0,0)by %an on %ad%n' --date=local --no-merges
+  rn = "!f() { git lm \"${1:-$(git describe --abbrev=0 --tags)}\"..\"$(2:-$(git rev-parse HEAD)}\"; }; f \"$@\""
+  tag-release = "!f() { git rn | git tag -a \"$1\" -F -; }; f \"$@\""
+[tag]
+  sort = v:refname
+[init]
+  templatedir = ~/.git-templates
