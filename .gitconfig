@@ -2,7 +2,7 @@
   name = Jelle Sebreghts
   email = sebreghts.jelle@gmail.com
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore-global
 [alias]
   changelog = tag -l -n1000 --sort=v:refname
   lm = log --pretty=format:'(%h) %s%n%w(72,10,10)%b%w(72,0,0)by %an on %ad%n' --date=local --no-merges
