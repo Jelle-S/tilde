@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$2,$3" in
+  merge,)
+  # retrieve merged branch name from an env var GITHEAD_<sha>=<branchName>
+  # we cannot use a sym ref of MERGE_HEAD, as it doesn't yet exist
+  gitHead=$(env | grep GITHEAD) # e.g. GITHEAD_<sha>=release/1.43
+  # cut out everything up to the last "=" sign
+  source=${gitHead##*=}
+
+  # retrieve base branch name from a sym ref of HEAD
+  branch=$(git symbolic-ref HEAD) # e.g. refs/heads/master
+  # cut out "refs/heads"
+  destination=${branch#refs/heads/}
+  echo "Merge details:" >> $1
+  echo "" >> $1
+  git lm "$(git rev-parse $destination)".."$(git rev-parse $source)" >> "$1" ;;
+*) ;;
+esac
