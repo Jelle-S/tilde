@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-alias ls='ls -GF'
-alias ll='ls -hlGFa'
-
 alias pu='pushd $(pwd)'
 alias po='popd'
 alias dirs='dirs -v'
