@@ -24,3 +24,4 @@ export HISTFILESIZE=10000000
 export HISTSIZE=1000000
 
 export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
+export TERM=xterm-256color
