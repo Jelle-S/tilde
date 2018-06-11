@@ -106,4 +106,4 @@ netbeans-8.2-php-linux-x64.sh
 netbeans-8.2/
 snap/
 websites/
-
+.vboxclient*
