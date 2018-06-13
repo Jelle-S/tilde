@@ -109,3 +109,7 @@ websites/
 .vboxclient*
 .oneteam
 .netbeans-plugins
+.gconf/
+.thunderbird-plugins/
+.thunderbird/
+
