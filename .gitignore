@@ -112,4 +112,7 @@ websites/
 .gconf/
 .thunderbird-plugins/
 .thunderbird/
+.dbeaver-drivers/
+.dbeaver4/
+.eclipse/
 
