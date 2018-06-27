@@ -7,6 +7,7 @@
 . ~/.bash/aliases
 . ~/.bash/completions
 . ~/.bash/prompt
+. ~/.bash/uncommitable_aliases
 
 # ssh host completion is dynamic.
 # Apparently when called from .bash/completions, ssh completion does not work?

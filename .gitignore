@@ -117,3 +117,4 @@ websites/
 .eclipse/
 .swt/
 .yarn/
+.bash/uncommitable_aliases
