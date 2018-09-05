@@ -7,7 +7,7 @@
   changelog = tag -l -n1000 --sort=v:refname
   lm = log --pretty=format:'(%h) %s%n%w(72,10,10)%b%w(72,0,0)by %an on %ad%n' --date=local --no-merges
   rn = "!f() { git lm \"${1:-$(git describe --abbrev=0 --tags)}\"..\"${2:-$(git rev-parse HEAD)}\"; }; f \"$@\""
-  tag-release = "!f() { git rn | git tag -a \"$1\" -F -; }; f \"$@\""
+  tag-release = "!f() { { echo \"Release $1\n\nChanges:\n\n\"; git rn; } | git tag -a \"$1\" -F -; }; f \"$@\""
 [tag]
   sort = v:refname
 [init]
