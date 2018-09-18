@@ -102,8 +102,7 @@ default-soapui-workspace.xml
 .xinputrc
 .xsession-errors
 .xsession-errors.old
-netbeans-8.2-php-linux-x64.sh
-netbeans-8.2/
+netbeans/
 snap/
 websites/
 .vboxclient*
