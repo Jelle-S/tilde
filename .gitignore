@@ -89,6 +89,7 @@ default-soapui-workspace.xml
 .Xauthority
 .bash_logout
 .dmrc
+.yarnrc
 .emma/
 .gnome/
 .java/
