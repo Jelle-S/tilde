@@ -49,6 +49,7 @@ default-soapui-workspace.xml
 /.php_history
 /.pow
 /.psql_history
+/.putty
 /.python_history
 /.slocdata/
 /.sonar/
