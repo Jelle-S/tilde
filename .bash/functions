@@ -138,9 +138,18 @@ ssh_configure_host() {
 # Call whenever ssh host config changes (@see ssh_configure_host)
 #
 ssh_load_autocomplete() {
-    complete -W "$(awk '/^\s*Host\s*/ { sub(/^\s*Host /, ""); print; }' ~/.ssh/config)" ssh uli ssh_drush ssh_exec
+    complete -W "$(awk '/^\s*Host\s+/ { sub(/^\s*Host /, ""); print; }' ~/.ssh/config)" ssh uli ssh_drush ssh_exec ssh_get_user
 }
 
+#
+# Find the ssh user for an ssh identifier (parsed from ~/.ssh/config)
+#
+ssh_get_user() {
+    local sshidentifier=$1
+    local hostregex=$(echo "$sshidentifier" | sed -E 's/\./\\\./')
+
+    echo $(sed -nE '/^\s*Host\s+'"$hostregex"'/,/^\s*User/p' ~/.ssh/config | grep User | sed -E 's/^\s*User\s+//')
+}
 
 #
 # Test a giveh ssh_config host identifier.
@@ -199,9 +208,9 @@ ssh_drush() {
 ssh_exec() {
     local sshidentifier=$1
     local cmd=$2
-    local sshuser=$(echo "$sshidentifier" | sed -E 's/\.(test|qa|prod)//')
+    local appname=$(echo "$sshidentifier" | sed -E 's/\.(test|qa|prod)//')
     local workingdir
-    local defaultdir="~/apps/$sshuser/current"
+    local defaultdir="~/apps/${appname:0:14}/current"
 
     if [ -z "$3" ]
     then
