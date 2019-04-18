@@ -138,7 +138,7 @@ ssh_configure_host() {
 # Call whenever ssh host config changes (@see ssh_configure_host)
 #
 ssh_load_autocomplete() {
-    complete -W "$(awk '/^\s*Host\s*/ { sub(/^\s*Host /, ""); print; }' ~/.ssh/config)" ssh uli ssh_drush
+    complete -W "$(awk '/^\s*Host\s*/ { sub(/^\s*Host /, ""); print; }' ~/.ssh/config)" ssh uli ssh_drush ssh_exec
 }
 
 
@@ -185,12 +185,33 @@ prj() {
 ssh_drush() {
     local sshidentifier=$1
     local drushcmd=$2
-    local sshuser
 
-    sshuser=$(echo "$sshidentifier" | sed -E 's/\.(test|qa|prod)//')
-    ssh "$sshidentifier" 'cd apps/'"$sshuser"'/current && drush '"$drushcmd"''
+    ssh_exec "$sshidentifier" "drush $drushcmd"
 }
 
+#
+# Execute a command on a server, in a folder
+#
+# @param The SSH identifier (as exported by domainator).
+# @param The command to execute.
+# @param The folder to execute it in (defaults to apps/$sshuser/current).
+#
+ssh_exec() {
+    local sshidentifier=$1
+    local cmd=$2
+    local sshuser=$(echo "$sshidentifier" | sed -E 's/\.(test|qa|prod)//')
+    local workingdir
+    local defaultdir="~/apps/$sshuser/current"
+
+    if [ -z "$3" ]
+    then
+        workingdir=$defaultdir
+    else
+        workingdir=$3
+    fi
+
+    ssh "$sshidentifier" 'cd '"$workingdir"' && '"$cmd"''
+}
 
 #
 # Shortcut for executing a `drush uli` on a server.
