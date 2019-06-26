@@ -208,7 +208,7 @@ ssh_drush() {
 ssh_exec() {
     local sshidentifier=$1
     local cmd=$2
-    local appname=$(echo "$sshidentifier" | sed -E 's/\.(test|qa|prod)//')
+    local appname=$(echo "$sshidentifier" | sed -E 's/\.(test|qa|prod)//' | sed -E 's/([^a-z0-9])//g')
     local workingdir
     local defaultdir="~/apps/${appname:0:14}/current"
 
