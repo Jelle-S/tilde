@@ -105,7 +105,7 @@ default-soapui-workspace.xml
 .xinputrc
 .xsession-errors
 .xsession-errors.old
-netbeans/
+netbeans*
 snap/
 websites/
 .vboxclient*
