@@ -21,3 +21,6 @@
   sort = v:refname
 [init]
   templatedir = ~/.git-templates
+[filesystem "Ubuntu|11.0.6|/dev/sda1"]
+	timestampResolution = 11000 nanoseconds
+	minRacyThreshold = 6303 microseconds
