@@ -126,3 +126,5 @@ websites/
 .gimp*
 .nvm/
 .gitkraken/
+.install4j
+.soapuios/
