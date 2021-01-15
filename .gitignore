@@ -129,3 +129,5 @@ websites/
 .install4j
 .soapuios/
 .openjfx/
+.ansible/
+
