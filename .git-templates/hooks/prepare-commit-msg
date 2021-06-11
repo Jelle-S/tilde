@@ -12,6 +12,7 @@ case "$2,$3" in
   branch=$(git symbolic-ref HEAD) # e.g. refs/heads/master
   # cut out "refs/heads"
   destination=${branch#refs/heads/}
+  echo "" >> $1
   echo "Merge details:" >> $1
   echo "" >> $1
   git lm "$(git rev-parse $destination)".."$(git rev-parse $source)" >> "$1" ;;
