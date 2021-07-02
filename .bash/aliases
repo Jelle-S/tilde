@@ -21,3 +21,5 @@ alias daystill="python -c 'from datetime import date; print \"Nog %sX slapen.\" 
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+alias activestreet=$'ssh stadgent.prod "echo \$(cat \$(grep /etc/apache2/sites-enabled/stadgent_* -e \'ServerAlias stad.gent\' | cut -d\':\' -f1) | grep -oP \'DocumentRoot\s*/\S+\' | cut -d\' \' -f2)"'
