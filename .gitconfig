@@ -48,3 +48,5 @@
 [filesystem "Ubuntu|11.0.14|/dev/sda1"]
 	timestampResolution = 6000 nanoseconds
 	minRacyThreshold = 15999 microseconds
+[pull]
+	rebase = false
