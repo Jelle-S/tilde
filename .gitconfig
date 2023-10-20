@@ -50,3 +50,5 @@
 	minRacyThreshold = 15999 microseconds
 [pull]
 	rebase = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/
