@@ -195,7 +195,7 @@ ssh_drush() {
     local sshidentifier=$1
     local drushcmd=$2
 
-    ssh_exec "$sshidentifier" "drush $drushcmd"
+    ssh_exec "$sshidentifier" "../vendor/bin/drush $drushcmd"
 }
 
 #
