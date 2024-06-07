@@ -33,3 +33,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # added by travis gem
 [ ! -s /home/jelle/.travis/travis.sh ] || source /home/jelle/.travis/travis.sh
+export PATH="$HOME/.rbenv/bin:$PATH"
