@@ -132,3 +132,4 @@ websites/
 .ansible/
 .git-credentials
 .rbenv
+go
