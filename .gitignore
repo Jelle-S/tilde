@@ -133,3 +133,4 @@ websites/
 .git-credentials
 .rbenv
 go
+.bootdev.yaml
