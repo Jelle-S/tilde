@@ -132,3 +132,5 @@ websites/
 .ansible/
 .git-credentials
 .rbenv
+go
+.bootdev.yaml
