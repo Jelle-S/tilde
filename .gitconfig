@@ -7,7 +7,7 @@
   changelog = tag -l -n1000 --sort=v:refname
 
   # Last version; show latest tag on the current branch.
-  lastversion = describe --abbrev=0 --tags
+  lastversion = "!git describe --tags $(git rev-list --tags --max-count=1)"
 
   # DG releases and CHANGELOG
   release-log = log --date=local --no-merges --no-color
