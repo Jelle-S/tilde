@@ -17,6 +17,7 @@
   lm = log --date=local --no-merges --no-color
   rn = "!f() { git release-log \"${1:-$(git lastversion)}\"..\"${2:-$(git rev-parse HEAD)}\"; }; f \"$@\""
   tag-release = "!f() { { echo \"Release $1\n\n\"; git release-notes; } | git tag -a \"$1\" -F -; }; f \"$@\""
+  fu = commit --no-verify --edit --file=.git/COMMIT_EDITMSG
 [tag]
   sort = v:refname
 [init]
