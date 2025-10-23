@@ -73,17 +73,6 @@ if [ "$current_email" != "$mail_address" ]; then
     echo "✉️ Git email set to $mail_address."
 fi
 
-# Clone the repository if not existing
-if [ ! -d .git ]; then
-    echo "💾 Cloning repository..."
-    git init
-    git remote add origin git@github.com:Jelle-S/tilde.git
-    git pull origin master
-    echo "✅ Repository cloned."
-else
-    echo "💾 Repository already cloned, skipping."
-fi
-
 # Install composer only if not present
 if [ ! -f /usr/local/bin/composer ]; then
     echo "🎵 Installing Composer..."
