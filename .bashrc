@@ -7,7 +7,7 @@
 . ~/.bash/aliases
 . ~/.bash/completions
 . ~/.bash/prompt
-. ~/.bash/uncommitable_aliases
+. ~/.bash/uncommitable
 
 # ssh host completion is dynamic.
 # Apparently when called from .bash/completions, ssh completion does not work?
@@ -27,10 +27,7 @@ export HISTSIZE=1000000
 export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
 export TERM=xterm-256color
 
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

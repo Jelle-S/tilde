@@ -14,14 +14,5 @@
 #   complete -o default -o nospace -F _git g
 #
 
-source /etc/bash_completion.d/git-completion.bash
-source /etc/bash_completion.d/git-prompt.sh
+source /etc/bash_completion.d/git-prompt
 
-# FZF
-# TODO split up? (because it does more than completion)
-#      Or move it to separate fzf file (as to not have 1 tool config spread
-#      over 3 files)
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
-fi
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
