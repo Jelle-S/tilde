@@ -61,18 +61,6 @@ echo "🚀 Git and bash-completion installed."
 
 read -p "👨‍💻 Enter your Git user name: " git_user_name
 
-# Set Git credentials idempotently
-current_user=$(git config --global user.name)
-if [ "$current_user" != "$git_user_name" ]; then
-    git config --global user.name "$git_user_name"
-    echo "👨‍💻 Git user name set to $git_user_name."
-fi
-current_email=$(git config --global user.email)
-if [ "$current_email" != "$mail_address" ]; then
-    git config --global user.email "$mail_address"
-    echo "✉️ Git email set to $mail_address."
-fi
-
 # Install composer only if not present
 if [ ! -f /usr/local/bin/composer ]; then
     echo "🎵 Installing Composer..."
