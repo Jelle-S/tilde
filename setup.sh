@@ -59,8 +59,6 @@ sudo apt-get install -y git
 sudo apt-get install -y bash-completion
 echo "🚀 Git and bash-completion installed."
 
-read -p "👨‍💻 Enter your Git user name: " git_user_name
-
 # Install composer only if not present
 if [ ! -f /usr/local/bin/composer ]; then
     echo "🎵 Installing Composer..."
