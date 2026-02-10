@@ -21,7 +21,7 @@ sudo apt-get install -y mysql-server apache2 zip unzip gzip bzip2 xz-utils tar r
 echo "✅ Base packages installed."
 
 echo "📦 Installing PHP packages..."
-sudo apt-get install -y php8.3-cli php8.3-common php8.3-curl php8.3-gd php8.3-imap php8.3-intl php8.3-ldap php8.3-mbstring php8.3-mysql php8.3-sqlite3 php8.3-xml php8.3-xsl php8.3-zip php8.3-bcmath php8.3-Imagick php8.3-igbinary php8.3-gmp
+sudo apt-get install -y php8.3-cli php8.3-common php8.3-curl php8.3-gd php8.3-imap php8.3-intl php8.3-ldap php8.3-mbstring php8.3-mysql php8.3-sqlite3 php8.3-xml php8.3-xsl php8.3-zip php8.3-bcmath php8.3-Imagick php8.3-igbinary php8.3-gmp libapache2-mod-php8.3
 echo "✅ PHP packages installed."
 
 # Enable Apache modules idempotently
@@ -29,6 +29,7 @@ echo "⚠️ Enabling Apache modules: vhost_alias, rewrite, ssl..."
 sudo a2enmod vhost_alias || true
 sudo a2enmod rewrite || true
 sudo a2enmod ssl || true
+sudo a2enmod php8.3 || true
 echo "✅ Apache modules enabled."
 
 sudo systemctl reload apache2
