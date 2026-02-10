@@ -52,9 +52,6 @@ else
     echo "🔑 SSH key already exists, skipping generation."
 fi
 
-eval "$(ssh-agent -s)"
-ssh-add "$ssh_key_path"
-echo "🔐 SSH key added to agent."
 
 sudo apt-get install -y git
 sudo apt-get install -y bash-completion
