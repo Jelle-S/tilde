@@ -17,7 +17,7 @@ fi
 
 # Install packages that are idempotent with apt
 echo "📦 Installing base packages..."
-sudo apt-get install -y mysql-server apache2 zip unzip gzip bzip2 xz-utils tar rbenv libnss3-tools
+sudo apt-get install -y mysql-server apache2 zip unzip gzip bzip2 xz-utils tar rbenv libnss3-tools build-essential autoconf automake libtool nasm pkg-config
 echo "✅ Base packages installed."
 
 echo "📦 Installing PHP packages..."
