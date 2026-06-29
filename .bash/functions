@@ -234,3 +234,17 @@ uli() {
 
     ssh_drush "$sshidentifier" uli | sed -e 's/http:\/\/default//' | tr -d '\n' | xclip -selection clipboard
 }
+
+# Slugify
+# Transliterate everything to ASCII
+# Strip out apostrophes
+# Anything that's not a letter or number to a dash
+# Strip leading & trailing dashes
+# Everything to lowercase
+slugify() {
+  echo "$1" \
+    | iconv -t ASCII//TRANSLIT \
+    | tr -d "'" \
+    | sed -E 's/[^a-zA-Z0-9]+/-/g; s/^-+|-+$//g' \
+    | tr '[:upper:]' '[:lower:]'
+}
