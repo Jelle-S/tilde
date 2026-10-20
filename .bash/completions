@@ -16,3 +16,6 @@
 
 source /etc/bash_completion.d/git-prompt
 
+
+# Generated with `xan completions bash`.
+[ -f ~/.local/share/bash-completion/completions/xan ] && source ~/.local/share/bash-completion/completions/xan
