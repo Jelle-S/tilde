@@ -45,6 +45,7 @@ default-soapui-workspace.xml
 /.node-gyp
 /.node_repl_history
 /.npm
+/.opencode/
 /.oracle_jre_usage
 /.pdepend
 /.pearrc
