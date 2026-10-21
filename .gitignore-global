@@ -3,3 +3,4 @@
 *.pyc
 .vagrant
 nbproject
+.claude/settings.local.json

@@ -15,7 +15,7 @@
 ssh_load_autocomplete
 
 # Path and environment vars.
-PATH="~/.yarn/bin:~/.composer/vendor/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="$HOME/.local/bin:~/.yarn/bin:~/.composer/vendor/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR=nvim
 export GIT_EDITOR="$EDITOR"
 

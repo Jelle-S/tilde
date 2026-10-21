@@ -18,6 +18,8 @@ default-soapui-workspace.xml
 /.berkshelf/
 /.bundle/
 /.cache/
+/.claude.json
+/.claude/
 /.composer/
 /.config/
 /.cups/
