@@ -248,3 +248,26 @@ slugify() {
     | sed -E 's/[^a-zA-Z0-9]+/-/g; s/^-+|-+$//g' \
     | tr '[:upper:]' '[:lower:]'
 }
+
+#
+# Convert a unix timestamp to a readable date.
+# Millisecond timestamps (13+ digits) are converted to seconds.
+#
+# @param The unix timestamp.
+#
+ts() {
+    local timestamp=$1
+
+    if [[ "$timestamp" == "" ]]
+    then
+        echo "usage: ts <timestamp>"
+        return 1
+    fi
+
+    if [[ ${#timestamp} -ge 13 ]]
+    then
+        timestamp=${timestamp:0:-3}
+    fi
+
+    date -d "@$timestamp" '+%Y-%m-%d %H:%M:%S %Z'
+}
