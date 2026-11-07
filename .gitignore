@@ -140,3 +140,4 @@ websites
 .rbenv
 go
 .bootdev.yaml
+.zed_server
